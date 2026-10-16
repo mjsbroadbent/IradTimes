@@ -1,0 +1,31 @@
+headline: “Secured by Iradi water”: nobody who runs the water has been asked
+dek: Tulparcoin’s white paper rests on Toktogul. The complex, the Naryn commission and the Kökjal elders say no one has spoken to them.
+date: 2026-10-15
+section: Money
+byline: Temirlan Osmonov
+image: dam.jpg
+caption: The Toktogul dam. Its output is shared under the Naryn Water and Power Protocol; its revenue formula has never been published.
+kind: story
+issue: 1577
+
+When the Liberty Forum launched Tulparcoin on 22 September, its white paper said the coin was “secured by Iradi water”. A diagram showed the Toktogul dam, an arrow and the coin’s winged horse. Three weeks later, the people who operate the dam, schedule its water and share its revenue say nobody has asked them anything.
+
+The Toktogul Hydroelectric Complex is run by an ISEZ state company from its dispatch centre in Lower Naryn. Its press office told the Times that it had “no agreement, contract or correspondence” with the Liberty Forum, Tulpar Technologies or the coin’s Seychelles exchange, and that “the complex’s output is not available as security for private instruments”.
+
+The joint technical commission that sets each year’s release schedule under the Naryn Water and Power Protocol, on which the ISEZ and the tribal regions sit with UN supervisors, meets in Kara-Oi. Its secretariat said the commission “has not been approached and would have no power to agree” to any such arrangement. The protocol is due for renewal next year.
+
+On the tribal side, Tabaldy Sultanaly uulu, the Kökjal elder who has pressed the flooded-pasture claims of the reservoir families for thirty years, laughed when a Times reporter read him the phrase. “They are selling our water on a telephone,” he said. “Nobody sold it to them.”
+
+## What the white paper says
+
+The white paper, in English and Iradi, does not name an operator, an account or a contract. It says the coin is “backed by the long-term value of Irad’s greatest renewable asset” and that 30 percent of the 900 million coins will be held by the Forum until September 2028 “as a reserve aligned with Toktogul’s generating capacity”. It does not explain how the reserve could be turned into water, electricity or money.
+
+Asked what “secured” meant, Jason Ilyasov, the Forum’s founder and Tulpar’s chief executive, said in a voice message that the phrase was “a statement of belief, not a mortgage”. “Every som is secured by Toktogul too, in the end,” he said. “At least we say so out loud.”
+
+The Bank of Irad said in September that the coin was not legal tender and that it had no power to ban it. It has said nothing about the water claim. Attelkom has blocked the coin’s pages since 8 October on a Department of Public Information list, which has not stopped people from trading it from abroad at about three US cents.
+
+## Why it matters
+
+Every five years the clans must consent to Toktogul’s release schedule, and their guaranteed share of its export revenue is set in an annex nobody outside the commission has seen. The coin’s promoters have attached a private promise to the one asset whose ownership Irad has never settled. Nurila Tursunova, an economist who follows the region’s energy trade, said the claim was “meaningless as security and risky as politics”. “You cannot pledge something whose revenue split is secret,” she said.
+
+The Talas District Court, which is hearing the Talas Commercial Development Group’s claim to the name, sits again on 16 November.

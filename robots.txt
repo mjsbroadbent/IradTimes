@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mjsbroadbent.github.io/IradTimes/sitemap.xml
