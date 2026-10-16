@@ -201,7 +201,7 @@ def main():
 <h1><a href="{lead["url"]}">{inline(lead["headline"])}</a></h1>
 <p class="dek">{inline(lead.get("dek", ""))}</p>
 <p class="meta">By {esc(lead.get("byline", ""))}</p>
-<p class="lede">{esc(lede(lead["body"], 420))} <a href="{lead["url"]}">Read the investigation →</a></p>
+<p class="lede">{esc(lede(lead["body"], 420))} <a href="{lead["url"]}">Full story &raquo;</a></p>
 </section>
 <aside class="side">
 {f"""<section class="editorial-box"><p class="kicker">The Times says</p><h2><a href="{editorial['url']}">{inline(editorial['headline'])}</a></h2><p>{esc(lede(editorial['body'], 260))}</p></section>""" if editorial else ""}
@@ -210,7 +210,7 @@ def main():
 </div>
 <section class="cards">{cards}</section>
 <section class="investigations">
-<h3>The record <a href="archive/">All investigations since 1996 →</a></h3>
+<h3>The record <a href="archive/">All investigations since 1996 &raquo;</a></h3>
 <ul>{picks_html}</ul>
 </section>
 <section class="paper-box">
@@ -234,7 +234,7 @@ def main():
     arch = ['<h1>Archive</h1><p class="intro">The investigations that made the Times, from the first issue in April 1996. Archive stories are free to read. The paper’s full back numbers can be seen on paper at the National Library of Irad, Talas State University, and at our office on Printers’ Lane.</p>']
     for y in sorted(by_year, reverse=True):
         rows = "".join(f'<li><a href="../{a["url"]}">{inline(a["headline"])}</a> <span>{nice_date(a["d"])}</span></li>' for a in sorted(by_year[y], key=lambda a: a["date"], reverse=True))
-        arch.append(f'<h2>{y}</h2><ul class="archive-list">{rows}</ul>')
+        arch.append(f'<h2 id="{y}">{y}</h2><ul class="archive-list">{rows}</ul>')
     urls.append((page("archive/index.html", "Archive: investigations since 1996 | Irad Times", "\n".join(arch),
                       "Every investigation in the Irad Times archive, from the 2007 Bill of Sale drafts and the grain auction to antimony and the Public Integrity Commission.", 1), CFG["issue"]["date"]))
 
