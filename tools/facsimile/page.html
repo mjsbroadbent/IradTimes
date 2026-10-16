@@ -1,0 +1,115 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:T;src:url(file:///usr/share/texmf/fonts/opentype/public/tex-gyre/texgyretermes-regular.otf)}
+@font-face{font-family:T;font-weight:bold;src:url(file:///usr/share/texmf/fonts/opentype/public/tex-gyre/texgyretermes-bold.otf)}
+@font-face{font-family:T;font-style:italic;src:url(file:///usr/share/texmf/fonts/opentype/public/tex-gyre/texgyretermes-italic.otf)}
+@font-face{font-family:T;font-style:italic;font-weight:bold;src:url(file:///usr/share/texmf/fonts/opentype/public/tex-gyre/texgyretermes-bolditalic.otf)}
+@font-face{font-family:H;src:url(file:///usr/share/texmf/fonts/opentype/public/tex-gyre/texgyreheros-regular.otf)}
+@font-face{font-family:H;font-weight:bold;src:url(file:///usr/share/texmf/fonts/opentype/public/tex-gyre/texgyreheros-bold.otf)}
+@font-face{font-family:HC;font-weight:bold;src:url(file:///usr/share/texmf/fonts/opentype/public/tex-gyre/texgyreheroscn-bold.otf)}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff}
+#p{width:1100px;height:1960px;padding:34px 38px;color:#111;font-family:T;position:relative;overflow:hidden}
+.ears{display:flex;justify-content:space-between;align-items:flex-end}
+.ear{width:170px;border:1.5px solid #111;padding:6px 8px;font:11px/1.3 H;text-align:center}
+.ear b{display:block;font:bold 15px HC;letter-spacing:.04em}
+.mast{text-align:center;font:bold 128px/0.9 T;letter-spacing:.03em;margin:0 0 2px}
+.under{font:italic 15px T;text-align:center;margin-bottom:6px}
+.folio{display:flex;justify-content:space-between;border-top:3px solid #111;border-bottom:1px solid #111;padding:4px 2px;font:bold 12px H;letter-spacing:.03em;margin-bottom:4px}
+.folio2{border-top:1px solid #111;margin-bottom:12px}
+.special{background:#111;color:#fff;font:bold 15px HC;letter-spacing:.35em;text-align:center;padding:4px 0;margin:6px 0 4px}
+.hed{font:bold 158px/0.92 T;text-align:center;letter-spacing:-.005em;margin:4px 0 4px;white-space:nowrap}
+.deck{font:italic 30px/1.15 T;text-align:center;margin:0 60px 6px}
+.deck2{font:bold 14px H;text-align:center;letter-spacing:.06em;border-top:1px solid #111;border-bottom:1px solid #111;padding:5px 0;margin:6px 0 12px}
+.grid{display:grid;grid-template-columns:3fr 1fr;gap:16px}
+.main{}
+.photo{margin:0 0 6px}
+.photo img{width:100%;display:block;filter:none}
+.cap{font:11.5px/1.3 H;margin:3px 0 0}
+.cap b{font-weight:bold}
+.credit{font:9px H;text-align:right;letter-spacing:.06em;color:#333}
+.byline{font:bold 12px H;letter-spacing:.04em;margin:10px 0 6px;border-top:1px solid #111;padding-top:6px}
+.cols{column-count:3;column-gap:16px;column-rule:1px solid #999;font:14.2px/1.32 T;text-align:justify;hyphens:auto}
+.cols p{margin:0;text-indent:14px}
+.cols p.first{text-indent:0}
+.cols p.first::first-letter{float:left;font:bold 56px/0.8 T;padding:4px 4px 0 0}
+.cols h4{font:bold 15px H;margin:8px 0 3px;break-after:avoid}
+.jump{font:italic bold 12.5px T;text-align:right;margin-top:4px}
+.side{border-left:1px solid #111;padding-left:14px}
+.box{border:2px solid #111;padding:8px 9px;margin-bottom:12px}
+.box h3{font:bold 19px/1.05 HC;margin:0 0 6px;letter-spacing:.02em;text-transform:uppercase}
+.box ol{margin:0;padding-left:18px;font:13.5px/1.3 T}
+.box li{margin-bottom:6px}
+.box li b{font-family:H;font-size:12px}
+.reply h3{font:bold 18px/1.1 T;margin:0 0 4px}
+.reply p{font:13.5px/1.3 T;margin:0 0 6px;text-align:justify;hyphens:auto}
+.map{border:1px solid #111;padding:6px;margin-bottom:12px}
+.map svg{width:100%;display:block}
+.map .mc{font:10.5px/1.25 H;margin-top:3px}
+.ed{border-top:3px double #111;margin-top:14px;padding-top:6px;display:grid;grid-template-columns:1fr 3fr;gap:16px}
+.ed h3{font:bold 22px/1.05 T;margin:0}
+.ed .lab{font:bold 11px H;letter-spacing:.12em}
+.ed p{margin:0;font:italic 14px/1.32 T;column-count:2;column-gap:16px;text-align:justify;hyphens:auto}
+.inside{position:absolute;left:38px;right:38px;bottom:30px;border-top:3px solid #111;border-bottom:1px solid #111;padding:6px 0;font:bold 12.5px H;display:flex;justify-content:space-between}
+.inside span{font-weight:normal}
+.also{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;border-top:1px solid #111;margin-top:12px;padding-top:6px}
+.also h5{font:bold 12px H;letter-spacing:.08em;margin:0 0 3px}
+.also p{font:13.5px/1.3 T;margin:0;text-align:justify;hyphens:auto}
+.box.small h3{font-size:15px}
+.idx{font:11.5px/1.6 H;margin:0}.idx i{float:right;font-style:normal;font-weight:bold}
+.wx{font:11.5px/1.35 H;border-top:1px solid #111;border-bottom:1px solid #111;padding:6px 0;margin-bottom:10px}
+.note{font:italic 13px/1.3 T}
+</style></head><body><div id="p">
+<div class="ears">
+<div class="ear"><b>SPECIAL EDITION</b>Published Monday<br>outside our normal day</div>
+<div class="ear"><b>16 PAGES</b>Price 2 som<br>Talas · Nurzhan · Iyık Janyl</div>
+</div>
+<div class="mast">IRAD TIMES</div>
+<div class="under">“The paper that reads the documents” · An independent weekly · Founded 1996</div>
+<div class="folio"><span>VOL. XII · NO. 568</span><span>TALAS, MONDAY, FEBRUARY 26, 2007</span><span>SPECIAL EDITION</span></div>
+<div class="special">FULL TEXTS INSIDE</div>
+<div class="hed">THE DRAFTS</div>
+<div class="deck">Treaty would dissolve the Republic and divide Irad among Kyrgyzstan, Uzbekistan and Kazakhstan, with no vote of the people</div>
+<div class="deck2">FRAMEWORK TREATY · THREE PROTOCOLS · ANNEXES · PRINTED IN FULL ON PAGES 2 TO 15</div>
+<div class="grid">
+<div class="main">
+<div class="photo"><img src="photo.jpg"><div class="credit">TIMES PHOTO</div>
+<p class="cap"><b>NURZHAN, SUNDAY.</b> Copies of the drafts are handed out to the crowd in Refinery Square after Erlan Toktarov read passages aloud from a truck and called them “a bill of sale for our country.”</p></div>
+<div class="byline">By BOLOTBEK DANIYAROV and THE TIMES STAFF</div>
+<div class="cols">
+<p class="first">Yesterday afternoon in Nurzhan, Erlan Toktarov stood on the back of a truck in Refinery Square and read to a crowd of several thousand from a stack of papers he called “a bill of sale for our country.” Copies were handed out until they ran out. The <i>Times</i> has obtained a complete set and prints them today, in full, on pages 2 to 15.</p>
+<p>We have compared our copy, page by page, with the sheets distributed in Nurzhan. They match. The documents are a framework treaty and three protocols, one with each neighbouring state, together with four annexes. They are typed in English and Russian, marked “draft” and “for consultation,” and several pages carry handwritten amendments. None is signed.</p>
+<p>Under the framework treaty the National Assembly would vote to dissolve the Democratic Republic of Irad, eleven weeks after it was proclaimed. Kyrgyzstan, Uzbekistan and Kazakhstan, none of which has recognised the Republic, would each recognise it “solely for the purpose of signature” of the treaty itself.</p>
+<h4>A map with three colours</h4>
+<p>The protocols draw new borders. Kyrgyzstan would receive the Talas valley, including the capital, and the Chatkal, Toktogul and Naryn lands next to its Jalal-Abad region. Uzbekistan would receive the Fergana rim. Kazakhstan would receive the northern steppe and the lower Chu with Nurzhan itself, the city where the documents were read aloud yesterday.</p>
+<p>Payments to the Republic would be made in instalments into escrow accounts outside Irad. The sums are left blank. Annex C lists companies that would receive shares in the Chu oil fields, the eastern antimony deposits and the company that operates the Toktogul dam. Several of them are among the companies that won the cabinet’s auctions this winter, which this newspaper has reported since December.</p>
+<p>Nowhere in the 214 pages is there any provision for a vote of the people of Irad, of the clans whose pastures make up most of the land to be transferred, or of the National Assembly beyond the single vote to dissolve.</p>
+<h4>“Contingency papers”</h4>
+<p>The office of Prime Minister Bakyt Orozbekov said last night that the documents were “unapproved contingency drafts” prepared by officials “to understand our neighbours’ positions,” and that “some pages may have been altered.” It did not say which pages, and it did not deny that the meetings described in the drafts had taken place. The foreign ministries of the three neighbouring states could not be reached.</p>
+<p>Mr. Toktarov, who until last week sat in the leadership of the Democratic Party of Irad, proclaimed a special economic zone from Nurzhan and declared the independence ruling annulled. In Talas, groups gathered at the Assembly building after nightfall. Police did not intervene.</p>
+<p>Readers will find the texts on the following pages exactly as we received them, with the handwritten amendments marked. We have printed nothing else on those pages.</p>
+<p class="jump">Reactions, page 16</p>
+</div>
+</div>
+<div class="side">
+<div class="box"><h3>What the drafts say</h3><ol>
+<li><b>DISSOLUTION.</b> The Assembly votes to dissolve the Republic.</li>
+<li><b>PARTITION.</b> Talas valley, Chatkal, Toktogul and Naryn lands to Kyrgyzstan; Fergana rim to Uzbekistan; steppe and lower Chu, with Nurzhan, to Kazakhstan.</li>
+<li><b>COMPENSATION.</b> Instalments into escrow abroad. Amounts blank.</li>
+<li><b>CONCESSIONS.</b> Oil, antimony and Toktogul shares to companies in Annex C.</li>
+<li><b>NO VOTE.</b> No referendum, no consultation of the clans.</li>
+</ol></div>
+<div class="map"><img src="partition_news.svg" style="width:100%;display:block"><p class="mc"><b>THE LINES ON THE MAP.</b> Drawn from the maps attached to the three protocols. Present state borders in fine line.</p></div>
+<div class="reply"><h3>Cabinet: “Not approved”</h3><p>The Prime Minister’s office called the papers contingency drafts and said they had never been put to the cabinet. It did not say who prepared them, or for whom.</p><p>The three foreign ministries named in the drafts did not reply to questions sent last night.</p></div>
+<div class="box small"><h3>Inside today</h3><p class="idx"><span>Framework Treaty</span><i>2</i><br><span>Protocol I, Kyrgyzstan</span><i>6</i><br><span>Protocol II, Uzbekistan</span><i>9</i><br><span>Protocol III, Kazakhstan</span><i>12</i><br><span>Annexes A–D</span><i>14</i><br><span>Reactions</span><i>16</i></p></div>
+<div class="wx"><b>WEATHER</b> Talas: snow showers, −6°. Nurzhan: overcast, −9°. Iyık Janyl: clear, −2°.</div>
+<div class="note">Our regular Thursday edition will appear as usual on March 1.</div>
+</div>
+</div>
+<div class="ed"><div><div class="lab">THE TIMES SAYS</div><h3>Read it for yourselves</h3></div><p>This newspaper was founded to print documents that the people of Irad have a right to see. We have never printed one more important than these. We print them in full, without comment on the pages where they appear, because no one should have to take anyone’s word for what they say: not the cabinet’s, not Mr. Toktarov’s, and not ours. Read them, and keep this paper.</p></div>
+<div class="also">
+<div><h5>TALAS</h5><p>Several hundred people gathered outside the National Assembly after dark on Sunday. Deputies said no session had been called. Police watched from the steps and did not intervene.</p></div>
+<div><h5>THE ANNEXES</h5><p>Of the eleven companies listed in Annex C, seven won auctions held by the cabinet between December and February. The <i>Times</i> will report on each in coming issues.</p></div>
+<div><h5>THE VALLEYS</h5><p>Elders of the Tanıp and Karakoyun clans said they would meet this week. “No one asked the pastures,” one said by telephone from the Besh-Tash valley.</p></div>
+</div>
+<div class="inside">INSIDE <span>Framework Treaty 2</span><span>Protocol with Kyrgyzstan 6</span><span>Protocol with Uzbekistan 9</span><span>Protocol with Kazakhstan 12</span><span>Annexes A–D 14</span><span>Reactions 16</span></div>
+</div></body></html>
