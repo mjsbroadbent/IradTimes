@@ -189,33 +189,48 @@ def main():
     rest = [s for s in current if s is not lead and s["kind"] == "story"]
     editorial = next((s for s in current if s["kind"] == "editorial"), None)
     briefs = [s for s in current if s["kind"] == "brief"]
-    cards = "".join(f'''<article class="card">{figure(s, "", "thumb") if s.get("image") else ""}<p class="kicker">{esc(s.get("section", ""))}</p>
-<h2><a href="{s["url"]}">{inline(s["headline"])}</a></h2><p class="dek">{inline(s.get("dek", ""))}</p><p class="meta">By {esc(s.get("byline", ""))}</p></article>''' for s in rest)
-    brief_html = "".join(f'<li><strong><a href="{s["url"]}">{inline(s["headline"])}</a></strong> {esc(lede(s["body"], 170))}</li>' for s in briefs)
+    def thumb(s, cls="sq"):
+        return f'<a href="{s["url"]}"><img class="{cls}" src="img/{s["image"]}" alt=""></a>' if s.get("image") else ""
+    mods = "".join(f'''<div class="mod-story">{thumb(s)}<p class="slug">{esc(s.get("section", ""))}</p>
+<h3><a href="{s["url"]}">{inline(s["headline"])}</a></h3><p class="by">by {esc(s.get("byline", ""))}</p><p>{inline(s.get("dek", ""))}</p></div>''' for s in rest[2:])
+    brief_html = "".join(f'<li><a href="{s["url"]}">{inline(s["headline"])}</a></li>' for s in briefs)
     picks = [a for a in archive if a.get("pick") == "yes"]
-    picks_html = "".join(f'<li><a href="{a["url"]}">{inline(a["headline"])}</a><span>{nice_date(a["d"])}</span></li>' for a in picks)
-    front = f'''<div class="front">
-<section class="lead-story">
-{figure(lead, "", "lead")}
-<p class="kicker">{esc(lead.get("section", ""))}</p>
-<h1><a href="{lead["url"]}">{inline(lead["headline"])}</a></h1>
-<p class="dek">{inline(lead.get("dek", ""))}</p>
-<p class="meta">By {esc(lead.get("byline", ""))}</p>
-<p class="lede">{esc(lede(lead["body"], 420))} <a href="{lead["url"]}">Full story &raquo;</a></p>
-</section>
-<aside class="side">
-{f"""<section class="editorial-box"><p class="kicker">The Times says</p><h2><a href="{editorial['url']}">{inline(editorial['headline'])}</a></h2><p>{esc(lede(editorial['body'], 260))}</p></section>""" if editorial else ""}
-<section class="briefs"><h3>This week in brief</h3><ul>{brief_html}</ul></section>
-</aside>
+    picks_html = "".join(f'<li><a href="{a["url"]}">{inline(a["headline"])}</a> <span>{a["d"].year}</span></li>' for a in picks)
+    popular = [lead] + rest[:3] + ([editorial] if editorial else [])
+    pop_html = "".join(f'<li><a href="{s["url"]}">{inline(s["headline"])}</a></li>' for s in popular)
+    front = f'''<div class="fp">
+<div class="fp-main">
+<div class="fp-top">
+<div class="lead-box">
+<a href="{lead["url"]}"><img src="img/{lead["image"]}" alt="{esc(lead.get("caption", "").replace("*", ""))}"></a>
+<p class="credit">{inline(lead.get("caption", ""))}</p>
+<p class="slug">{esc(lead.get("section", ""))}</p>
+<h2><a href="{lead["url"]}">{inline(lead["headline"])}</a></h2>
+<p class="by">by {esc(lead.get("byline", ""))}</p>
+<p>{esc(lede(lead["body"], 330))}</p>
+<ul class="related"><li><a href="{lead["url"]}">Read the investigation</a></li><li><a href="archive/2019/the-antimony-shareholders-nobody-can-name.html">2019: The Antimony Shareholders Nobody Can Name</a></li></ul>
 </div>
-<section class="cards">{cards}</section>
-<section class="investigations">
-<h3>The record <a href="archive/">All investigations since 1996 &raquo;</a></h3>
-<ul>{picks_html}</ul>
-</section>
-<section class="paper-box">
-<p><strong>The Irad Times is on the stands every Thursday</strong> in Talas, Nurzhan and Iyık Janyl, 24 pages for 5 som, and is posted to subscribers abroad. Owned by the people who write it since 2001. <a href="about.html">About the Times</a> · <a href="subscribe.html">Subscribe</a> · <a href="tips.html">Send us documents</a></p>
-</section>'''
+<div class="second">
+{"".join(f'<div class="sec-story"><h2><a href="{s["url"]}">{inline(s["headline"])}</a></h2><p>{inline(s.get("dek", ""))}</p></div>' for s in rest[:2])}
+{f'<div class="sec-story ed"><p class="slug">The Times says</p><h2><a href="{editorial["url"]}">{inline(editorial["headline"])}</a></h2><p>{esc(lede(editorial["body"], 200))}</p></div>' if editorial else ""}
+</div>
+</div>
+<div class="banner"><a href="access.html"><strong>Blocked in Irad since 15 October.</strong> Read the Times on Tulpar, by email, or on paper every Thursday &rsaquo;</a></div>
+<div class="mod"><h4>This week's paper <a href="issue/">all stories &rsaquo;</a></h4>{mods}</div>
+<div class="cols2">
+<div class="mod"><h4>In brief <a href="issue/">more &rsaquo;</a></h4><ul class="list">{brief_html}</ul></div>
+<div class="mod"><h4>The record <a href="archive/">since 1996 &rsaquo;</a></h4><ul class="list">{picks_html}</ul></div>
+</div>
+</div>
+<div class="fp-right">
+<div class="rbox"><h4>Don't miss</h4>
+<div class="dm"><a href="archive/2007/the-drafts-framework-treaty-and-protocols.html"><img src="img/bill-of-sale-1.jpg" alt=""></a><h3><a href="archive/2007/the-drafts-framework-treaty-and-protocols.html">The Drafts, 26 February 2007</a></h3><p>The special edition that printed the treaty to sell Irad, in full.</p></div>
+<div class="dm"><a href="access.html"><img src="img/newsroom.jpg" alt=""></a><h3><a href="access.html">If we are blocked</a></h3><p>How to read us, and every block since 2013.</p></div>
+</div>
+<div class="rbox"><h4>Most read</h4><div class="tabs"><span class="on">Read</span><span>Shared</span><span>Printed</span></div><ol class="list pop">{pop_html}</ol></div>
+<div class="rbox paper"><h4>The paper</h4><p><b>On the stands every Thursday</b> in Talas, Nurzhan and Iyık Janyl. 24 pages, 5 som.</p><p><a href="subscribe.html">Subscribe at home or abroad &rsaquo;</a><br><a href="tips.html">Send us documents &rsaquo;</a></p></div>
+</div>
+</div>'''
     ld_site = {"@context": "https://schema.org", "@type": "WebSite", "name": "Irad Times", "url": SITE}
     urls.insert(0, (page("index.html", "Irad Times | The independent weekly of Irad since 1996", front,
                          CFG["description"], 0, og_image="img/" + lead["image"],
