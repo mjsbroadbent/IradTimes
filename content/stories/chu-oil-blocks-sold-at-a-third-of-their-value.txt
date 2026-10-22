@@ -2,7 +2,7 @@ headline: Chu oil blocks sold at a third of their value, cabinet papers show
 dek: Internal valuations put the three exploration blocks at $96 million. They went for $31 million, to companies registered abroad in November.
 date: 2006-12-21
 section: Investigation
-byline: Bolotbek Daniyarov
+byline: Bolotbek Daniyar
 kind: archive
 pick: yes
 note: From the Irad Times of 21 December 2006, the first of the paper’s reports on the auctions of the Democratic Republic of Irad.
